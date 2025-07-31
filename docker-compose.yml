@@ -6,8 +6,8 @@ services:
     image: plexinc/pms-docker
     container_name: plex
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - VERSION=docker
       - HOSTNAME=”PlexServer”
     volumes:
@@ -32,8 +32,8 @@ services:
     image: linuxserver/radarr
     container_name: radarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/radarr:/config
@@ -48,8 +48,8 @@ services:
     image: linuxserver/sonarr
     container_name: sonarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/sonarr:/config
@@ -64,8 +64,8 @@ services:
     image: linuxserver/lidarr
     container_name: lidarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/lidarr:/config
@@ -80,8 +80,8 @@ services:
     image: linuxserver/prowlarr
     container_name: prowlarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/prowlarr:/config
@@ -95,8 +95,8 @@ services:
     image: linuxserver/bazarr
     container_name: bazarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/bazarr:/config
@@ -111,8 +111,8 @@ services:
     image: linuxserver/qbittorrent
     container_name: qbittorrent
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/qbittorrent:/config
@@ -127,8 +127,8 @@ services:
     image: linuxserver/jackett
     container_name: jackett
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/jackett:/config
@@ -142,8 +142,8 @@ services:
     image: linuxserver/ombi
     container_name: ombi
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/ombi:/config
@@ -157,8 +157,8 @@ services:
     image: linuxserver/heimdall
     container_name: heimdall
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PUID=0
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/heimdall:/config
