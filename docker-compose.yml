@@ -34,7 +34,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/radarr:/config
       - ./content:/data
@@ -50,7 +50,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/sonarr:/config
       - ./content:/data
@@ -66,7 +66,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/lidarr:/config
       - ./content:/data
@@ -82,7 +82,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/prowlarr:/config
     ports:
@@ -97,7 +97,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/bazarr:/config
       - ./content:/data
@@ -113,7 +113,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/qbittorrent:/config
       - ./content/torrents:/data/torrents
@@ -129,7 +129,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/jackett:/config
     ports:
@@ -144,7 +144,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/ombi:/config
     ports:
@@ -159,7 +159,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/Sofia
+      - TZ=Europe/Lisbon
     volumes:
       - ./provision/heimdall:/config
     ports:
