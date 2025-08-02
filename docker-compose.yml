@@ -186,13 +186,21 @@ services:
       - RUNNOW=no
       - SKIPUPDATE=no
       - APP_BRANCH=master
+    networks:
+      - media-network
 
   sabnzbd:
-    image: linuxserver/sabnzbd
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Lisbon
+    volumes:
+      - ./provision/sabnzbd:/config
+      - ./content/torrents:/data/torrents
     ports:
-      - 8080:8080
+      - 8085:8080 # external:internal (8085 on host)
     networks:
-      - media
-
-networks:
-  media-network:
+      - media-network
+    restart: unless-stopped
