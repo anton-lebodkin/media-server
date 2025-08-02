@@ -169,18 +169,23 @@ services:
     networks:
       - media-network
 
-  traktarr:
-    image: linuxserver/traktarr
-    container_name: traktarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Lisbon
-    volumes:
-      - ./provision/traktarr:/config
-    restart: unless-stopped
-    networks:
-      - media-network
+    traktarr:
+      container_name: traktarr
+      image: eafxx/traktarr
+      volumes:
+        - ./provision/traktarr:/config
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Europe/Lisbon
+        - DELAY=2.5
+        - SORT=rating
+        - NOSEARCH=yes
+        - NOTIFICATIONS=yes
+        - BLACKLIST=yes
+        - RUNNOW=no
+        - SKIPUPDATE=no
+        - APP_BRANCH=master
 
 networks:
   media-network:
