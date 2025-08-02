@@ -169,23 +169,30 @@ services:
     networks:
       - media-network
 
-    traktarr:
-      container_name: traktarr
-      image: eafxx/traktarr
-      volumes:
-        - ./provision/traktarr:/config
-      environment:
-        - PUID=1000
-        - PGID=1000
-        - TZ=Europe/Lisbon
-        - DELAY=2.5
-        - SORT=rating
-        - NOSEARCH=yes
-        - NOTIFICATIONS=yes
-        - BLACKLIST=yes
-        - RUNNOW=no
-        - SKIPUPDATE=no
-        - APP_BRANCH=master
+  traktarr:
+    container_name: traktarr
+    image: eafxx/traktarr
+    volumes:
+      - ./provision/traktarr:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Lisbon
+      - DELAY=2.5
+      - SORT=rating
+      - NOSEARCH=yes
+      - NOTIFICATIONS=yes
+      - BLACKLIST=yes
+      - RUNNOW=no
+      - SKIPUPDATE=no
+      - APP_BRANCH=master
+
+  sabnzbd:
+    image: linuxserver/sabnzbd
+    ports:
+      - 8080:8080
+    networks:
+      - media
 
 networks:
   media-network:
