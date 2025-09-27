@@ -197,3 +197,19 @@ services:
     restart: unless-stopped
     networks:
       - media-network
+
+  lazylibrarian:
+    image: lscr.io/linuxserver/lazylibrarian
+    container_name: lazylibrarian
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Lisbon
+    volumes:
+      - ./provision/lazylibrarian:/config
+      - ./content:/data
+    ports:
+      - "5299:5299"
+    restart: unless-stopped
+    networks:
+      - media-network
