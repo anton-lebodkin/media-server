@@ -213,3 +213,18 @@ services:
     restart: unless-stopped
     networks:
       - media-network
+
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    environment:
+      TZ: "Europe/Lisbon"
+      WEBPASSWORD: "${WEBPASSWORD}"
+    volumes:
+      - "./etc-pihole:/etc/pihole"
+      - "./etc-dnsmasq.d:/etc/dnsmasq.d"
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8081:80/tcp" # map host 8080 → container 80
+    restart: unless-stopped
