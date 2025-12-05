@@ -108,12 +108,11 @@ services:
       - TZ=Europe/Lisbon
     volumes:
       - ./provision/qbittorrent:/config
-      - ./content/torrents:/data/torrents
-    ports:
-      - "8080:8080"
+      - ./content:/data
+    network_mode: service:gluetun
+    depends_on:
+      - gluetun
     restart: unless-stopped
-    networks:
-      - media-network
 
   jackett:
     image: lscr.io/linuxserver/jackett
@@ -235,3 +234,26 @@ services:
     restart: unless-stopped
     networks:
       - media-network
+
+  gluetun:
+    image: qmcgaw/gluetun
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8080:8080 # WEB UI qBittorrent
+      - 6881:6881 # TCP torrent
+      - 6881:6881/udp # UDP torrent
+    volumes:
+      - ./gluetun:/gluetun
+    networks:
+      - media-network
+    environment:
+      - VPN_TYPE=openvpn
+      - VPN_SERVICE_PROVIDER=${VPN_PROVIDER}
+      - OPENVPN_USER=${VPN_USER}
+      - OPENVPN_PASSWORD=${VPN_PASS}
+      - SERVER_COUNTRIES=${VPN_COUNTRIES}
+    restart: always
